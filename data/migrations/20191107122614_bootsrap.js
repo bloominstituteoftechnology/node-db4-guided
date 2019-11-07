@@ -18,14 +18,22 @@ exports.up = function (knex) {
         })
         .createTable('animal_zoos', tbl => {
             tbl.increment()
-            tbl.integer('animal_id').unsigned().references('id').inTable('animals')
-            tbl.integer('zoo_id').unsigned().references('id').inTable('zoos')
+            tbl.integer('animal_id').unsigned().references('id').inTable('animals').onDelete('RESTRICT').onUpdate('CASCADE')
+            tbl.integer('zoo_id').unsigned().references('id').inTable('zoos').onDelete('RESTRICT').onUpdate('CASCADE')
             tbl.date('from')
-            tbl.integer('to')
+            tbl.date('to')
         })
 
 };
 
 exports.down = function (knex) {
+    return knex.schema
+        .dropTableIfExists('animal_zoos')
+        .dropTableIfExists('zoos')
+        .dropTableIfExists('animals')
+        .dropTableIfExists('species')
+
+
+
 
 };
