@@ -35,6 +35,13 @@ exports.up = function(knex) {
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE')
             tbl
+                .integer('animal_id')
+                .unsigned()
+                .references('id')
+                .inTable('animals')
+                .onDelete('CASCADE')
+                .onUpdate('CASCADE')
+            tbl
                 .date('from').notNullable()
             tbl
                 .date('to')
