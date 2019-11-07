@@ -23,7 +23,7 @@ exports.up = function(knex) {
             tbl
                 .string('name').notNullable()
             tbl
-                .string('address').notNullable()
+                .string('address')
         })
         .createTable('animal_zoos', tbl => {
             tbl.increments()
@@ -34,14 +34,18 @@ exports.up = function(knex) {
                 .inTable('zoos')
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE')
+            tbl
+                .date('from').notNullable()
+            tbl
+                .date('to')
         })
   };
   exports.down = function(knex) {
       return knex.schema
-        .dropIfTableExists('animal_zoos')
-        .dropIfTableExists('zoos')
-        .dropIfTableExists('species')
-        .dropIfTableExists('animals')
+        .dropTableIfExists('animal_zoos')
+        .dropTableIfExists('zoos')
+        .dropTableIfExists('animals')
+        .dropTableIfExists('species')
 
   };
   // knex ... command not found: knex -> npx knex ... or install knex globally with npm i -g knex
