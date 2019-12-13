@@ -17,3 +17,9 @@ For the `animals` the client wants to record:
 
 Determine the database tables necessary to track this information.
 Label any relationships between table.
+
+## Samuel's Project: Bug Tracker
+
+`Admin` can assign a `ticket` to an `employee` with priority
+`Employee` sees the ticket (notified by email)
+
