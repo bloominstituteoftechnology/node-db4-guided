@@ -19,6 +19,11 @@ server.get('/api/species', (req, res) => {
   });
 });
 
+
+    // select a.id, a.animal_name, s.species_name
+    // from animals as a
+    // join species as s
+    // on s.id = a.species_id;====>
 server.get('/api/animals', (req, res) => {
   // get all animals from the database
   // include species name
