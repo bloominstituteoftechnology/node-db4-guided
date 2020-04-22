@@ -8,6 +8,10 @@ const server = express();
 server.use(helmet());
 server.use(express.json());
 
+server.get('/', (req, res) => {
+  res.send('Welcome to the ZOO-Animals API!!! ')
+})
+
 server.get('/api/species', (req, res) => {
   // get all species from the database
   db('species')
