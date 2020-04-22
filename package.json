@@ -4,6 +4,7 @@
   "description": "Guided Project for Node DB 4 Module",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "server": "nodemon index.js"
   },
   "keywords": [],

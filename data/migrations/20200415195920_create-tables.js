@@ -13,12 +13,12 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string('animal_name', 128).notNullable();
         tbl.integer('species_id')
-        .unsigned()// never negative numbers
-        .notNullable()
-        .references('id')
-        .inTable('species')
-        .onDelete('CASCADE')
-        .onUpdate('CASCADE');
+            .unsigned()// never negative numbers
+            .notNullable()
+            .references('id')
+            .inTable('species')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE');
       })
       .createTable('zoo_animals', tbl => {
         tbl.increments();
