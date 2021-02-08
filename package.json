@@ -4,14 +4,15 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "ketchup": "git fetch && git reset --hard origin/lecture"
+    "ketchup": "git fetch && git reset --hard origin/lecture",
+    "start": ""
   },
   "dependencies": {
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "knex": "^0.21.16",
     "knex-cleaner": "^1.3.1",
-    "sqlite3": "^5.0.1"
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
