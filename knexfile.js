@@ -11,5 +11,13 @@ module.exports = {
     seeds: {
       directory: './data/seeds'
     },
+    pool: {
+      afterCreate: (conn, done) => {
+        // runs after a connection is mafe tot he sqllite engine
+        conn.run('PRAGMA foreign_keys = ON', done); // turn on FK enforcement
+      }
+    }
   },
+  production: {},
+  tetsing: {}
 };
