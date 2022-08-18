@@ -28,12 +28,14 @@ exports.up = function (knex) {
                 .unsigned()
                 .notNullable()
                 .references('zoo_id')
-                .inTable('zoos');
+                .inTable('zoos')
+                .onDelete('CASCADE');
             tbl.integer('animal_id')
                 .unsigned()
                 .notNullable()
                 .references('animal_id')
-                .inTable('animals');
+                .inTable('animals')
+                .onDelete('CASCADE');
             tbl.primary(['zoo_id', 'animal_id']);
         });
 };
