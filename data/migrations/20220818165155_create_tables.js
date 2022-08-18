@@ -39,5 +39,9 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-
+    return knex.schema
+        .dropTableIfExists('zoo_animals')
+        .dropTableIfExists('zoos')
+        .dropTableIfExists('animals')
+        .dropTableIfExists('species');
 };
