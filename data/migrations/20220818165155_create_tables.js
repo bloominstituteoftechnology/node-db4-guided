@@ -14,8 +14,12 @@ exports.up = function (knex) {
             tbl.varchar('address', 200);
         })
         .createTable('zoo_animals', tbl => {
-            //     zoo_id
-            //     animal_id
+            tbl.integer('zoo_id')
+                .references('zoo_id')
+                .inTable('zoos');
+            tbl.integer('animal_id')
+                .references('animal_id')
+                .inTable('animals');
         })
         .createTable('species', tbl => {
             tbl.increments('species_id');
