@@ -1,11 +1,17 @@
 
 exports.up = function (knex) {
     return knex.schema
+        .createTable('species', tbl => {
+            tbl.increments('species_id');
+            tbl.varchar('species_name', 100)
+                .notNullable();
+        })
         .createTable('animals', tbl => {
             tbl.increments('animal_id');
             tbl.varchar('animal_name', 100)
                 .notNullable();
             tbl.integer('species_id')
+                .unsigned()
                 .notNullable()
                 .references('species_id')
                 .inTable('species');
@@ -19,19 +25,16 @@ exports.up = function (knex) {
         })
         .createTable('zoo_animals', tbl => {
             tbl.integer('zoo_id')
+                .unsigned()
                 .notNullable()
                 .references('zoo_id')
                 .inTable('zoos');
             tbl.integer('animal_id')
+                .unsigned()
                 .notNullable()
                 .references('animal_id')
                 .inTable('animals');
             tbl.primary(['zoo_id', 'animal_id']);
-        })
-        .createTable('species', tbl => {
-            tbl.increments('species_id');
-            tbl.varchar('species_name', 100)
-                .notNullable();
         });
 };
 
